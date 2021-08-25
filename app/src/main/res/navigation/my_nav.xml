@@ -7,12 +7,20 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.evanstukalov.fakekinopoiskapp.ListFragment"
+        android:name="com.evanstukalov.fakekinopoiskapp.ui.list.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_showDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.evanstukalov.fakekinopoiskapp.DetailFragment"
+        android:name="com.evanstukalov.fakekinopoiskapp.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="selectedFilm"
+            app:argType="com.evanstukalov.fakekinopoiskapp.domain.Film" />
+    </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.evanstukalov.fakekinopoiskapp.R
+import timber.log.Timber
 
 class DetailFragment : Fragment() {
 
@@ -14,6 +15,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        Timber.d("DetailFragment is created")
         return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 

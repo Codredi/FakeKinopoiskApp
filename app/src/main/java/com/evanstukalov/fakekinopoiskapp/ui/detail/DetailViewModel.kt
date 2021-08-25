@@ -1,4 +1,5 @@
 package com.evanstukalov.fakekinopoiskapp.ui.detail
 
-class DetailViewModel {
-}
+import androidx.room.TypeConverter
+import com.evanstukalov.fakekinopoiskapp.domain.Film
+
