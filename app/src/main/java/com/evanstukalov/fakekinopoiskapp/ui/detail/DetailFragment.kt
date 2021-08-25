@@ -1,4 +1,4 @@
-package com.evanstukalov.fakekinopoiskapp.ui
+package com.evanstukalov.fakekinopoiskapp.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
