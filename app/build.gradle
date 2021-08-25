@@ -49,6 +49,7 @@ dependencies {
 
     // constraint layout
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Test
     testImplementation 'junit:junit:4.+'

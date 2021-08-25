@@ -1,7 +1,8 @@
-package com.evanstukalov.fakekinopoiskapp
+package com.evanstukalov.fakekinopoiskapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.evanstukalov.fakekinopoiskapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
