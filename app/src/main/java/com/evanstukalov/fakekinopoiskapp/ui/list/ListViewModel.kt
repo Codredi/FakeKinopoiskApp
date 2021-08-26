@@ -7,13 +7,17 @@ import com.evanstukalov.fakekinopoiskapp.database.FilmDataBase
 import com.evanstukalov.fakekinopoiskapp.domain.Film
 import com.evanstukalov.fakekinopoiskapp.repository.Repository
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.io.IOException
+import java.lang.Exception
 
 class ListViewModel(application: Application, database: FilmDataBase): AndroidViewModel(application) {
 
     private val repository = Repository(database)
 
     val films = repository.films
+
+    val genres = repository.genres
 
     /**
      * init{} is called immediately when this ViewModel is created.
@@ -46,10 +50,10 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
         viewModelScope.launch {
             try {
                 repository.refreshFilms()
+                Timber.d("${genres.value}")
                 _eventNetworkError.value = false
 
-            } catch (networkError: IOException) {
-                // Show a Toast error message and hide the progress bar.
+            } catch (e: Exception) {
                 if(films.value.isNullOrEmpty()) {
                     _eventNetworkError.value = true
                 }

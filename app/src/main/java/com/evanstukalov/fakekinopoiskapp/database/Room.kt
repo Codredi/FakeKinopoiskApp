@@ -4,18 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
-@Dao
-interface FilmDao {
-
-    @Query("select * from `database`")
-    fun getFilms(): LiveData<List<DatabaseFilm>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFilms(videos: List<DatabaseFilm>)
-
-}
-
-@Database(entities = [DatabaseFilm::class], version = 1)
+@Database(entities = [DatabaseFilm::class], version = 1, exportSchema = false)
 abstract class FilmDataBase: RoomDatabase(){
     abstract val videoDao: FilmDao
 }

@@ -16,7 +16,6 @@ import com.evanstukalov.fakekinopoiskapp.R
 import com.evanstukalov.fakekinopoiskapp.database.getDatabase
 import com.evanstukalov.fakekinopoiskapp.databinding.FragmentListBinding
 import com.evanstukalov.fakekinopoiskapp.domain.Film
-import com.evanstukalov.fakekinopoiskapp.ui.detail.are FiDetailFragmentDirections
 import timber.log.Timber
 
 class ListFragment : Fragment() {
@@ -61,7 +60,7 @@ class ListFragment : Fragment() {
             })
             navigateToSelectedFilm.observe(viewLifecycleOwner, Observer { film ->
                 if (film != null){
-                    findNavController().navigate()
+                    findNavController().navigate(ListFragmentDirections.actionShowDetail(film))
                     viewModel.displayPropertyDetailesCompleted()
                 }
             })

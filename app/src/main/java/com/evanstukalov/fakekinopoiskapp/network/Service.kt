@@ -1,27 +1,41 @@
 package com.evanstukalov.fakekinopoiskapp.network
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-/**
- * A retrofit service to fetch a devbyte playlist.
- */
 interface ApiService {
     @GET("films.json")
     suspend fun getFilms(): NetworkFilmsContainer
 }
 
-/**
- * Main entry point for network access. Call like `DevByteNetwork.devbytes.getPlaylist()`
- */
-object Network {
+//// Create Moshi instance
+//private val moshi = Moshi.Builder()
+//        .add(KotlinJsonAdapterFactory())
+//        .build()
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://android-kotlin-fun-mars-server.appspot.com/")
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
+// Create logging interceptor and set log level
+private val logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-    val apiService: ApiService = retrofit.create(ApiService::class.java)
+// Create OkHttp client and add interceptor
+private val okHttpClient = OkHttpClient.Builder().addInterceptor(logging)
+
+
+
+// Create Retrofit instance
+object RetrofitInstance {
+
+    val api: ApiService by lazy {
+        Retrofit.Builder()
+                .baseUrl("https://s3-eu-west-1.amazonaws.com/sequeniatesttask/")
+                .addConverterFactory(MoshiConverterFactory.create())
+                .client(okHttpClient.build())
+                .build()
+                .create(ApiService::class.java)
+    }
 }
 

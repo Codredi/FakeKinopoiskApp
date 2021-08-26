@@ -12,12 +12,20 @@ data class NetworkFilmsContainer(val films: List<NetworkFilm>)
 
 @JsonClass(generateAdapter = true)
 data class NetworkFilm(
-    val description: String,
-    val genres: List<String>,
-    val id: Int,
-    val imageUrl: String,
-    val localizedName: String,
-    val name: String,
-    val rating: Double,
-    val year: Int
+    @Json(name = "id")
+    val id: Int = 0,
+    @Json(name = "localized_name")
+    val localizedName: String = "",
+    @Json(name = "name")
+    val name: String = "",
+    @Json(name = "year")
+    val year: Int = 0,
+    @Json(name = "rating")
+    val rating: Double? = null,
+    @Json(name = "image_url")
+    val imageUrl: String? = null,
+    @Json(name = "description")
+    val description: String = "",
+    @Json(name = "genres")
+    val genres: List<String> = listOf()
 )
