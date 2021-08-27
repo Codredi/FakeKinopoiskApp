@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.evanstukalov.fakekinopoiskapp.databinding.FilmItemBinding
 import com.evanstukalov.fakekinopoiskapp.domain.Film
 
-class MyListAdapter(private val onClick: (Film) -> Unit) :
-    ListAdapter<Film, MyListAdapter.FilmViewHolder>(FilmDiffCallBack) {
+class ListFilmsAdapter(private val onClick: (Film) -> Unit) :
+    ListAdapter<Film, ListFilmsAdapter.FilmViewHolder>(FilmDiffCallBack) {
 
 
     class FilmViewHolder(private val binding: FilmItemBinding,

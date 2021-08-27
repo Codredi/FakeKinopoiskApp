@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.evanstukalov.fakekinopoiskapp.R
 import com.evanstukalov.fakekinopoiskapp.database.getDatabase
 import com.evanstukalov.fakekinopoiskapp.databinding.FragmentListBinding
-import com.evanstukalov.fakekinopoiskapp.domain.Film
 import timber.log.Timber
 
 class ListFragment : Fragment() {
@@ -39,7 +37,7 @@ class ListFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-        val adapter = MyListAdapter{film -> viewModel.displayFilmDetails(film) }
+        val adapter = ListFilmsAdapter{ film -> viewModel.displayFilmDetails(film) }
         /**
          * Method for displaying a Toast error message for network errors.
          */

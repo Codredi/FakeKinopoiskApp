@@ -19,11 +19,14 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
 
     val genres = repository.genres
 
+
     /**
      * init{} is called immediately when this ViewModel is created.
      */
     init {
         refreshDataFromRepository()
+        Timber.d("${genres.value}) - Жанры")
+        Timber.d("${films.value}) - фИЛЬМЫ")
     }
 
     /**
@@ -50,7 +53,6 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
         viewModelScope.launch {
             try {
                 repository.refreshFilms()
-                Timber.d("${genres.value}")
                 _eventNetworkError.value = false
 
             } catch (e: Exception) {

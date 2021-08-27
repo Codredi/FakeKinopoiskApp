@@ -15,3 +15,8 @@ data class Film(
     val description: String = "",
     val genres: List<String> = listOf()
 ) : Parcelable
+
+data class Genre(
+        val genres: List<String> = listOf()
+)
+

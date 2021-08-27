@@ -20,4 +20,11 @@ data class DatabaseFilm (
     val genres: List<String> = listOf()
 )
 
+@Entity(tableName = "database_genre")
+@TypeConverters(MyConverters::class)
+data class DatabaseGenre (
+        @PrimaryKey
+        val genres: List<String> = listOf()
+)
+
 
