@@ -8,8 +8,6 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class NetworkFilmsContainer(val films: List<NetworkFilm>)
 
-/*Network results*/
-
 @JsonClass(generateAdapter = true)
 data class NetworkFilm(
     @Json(name = "id")

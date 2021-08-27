@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
-@Database(entities = [DatabaseFilm::class, DatabaseGenre::class], version = 1, exportSchema = false)
+@Database(entities = [DatabaseFilm::class], version = 1, exportSchema = false)
 abstract class FilmDataBase: RoomDatabase(){
     abstract val filmDao: FilmDao
 }

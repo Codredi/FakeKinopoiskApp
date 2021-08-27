@@ -15,10 +15,4 @@ interface FilmDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFilms(videos: List<DatabaseFilm>)
 
-    @Query("select genres from 'database_genre'")
-    fun getGenres(): LiveData<List<DatabaseGenre>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertGenres(genres: List<DatabaseGenre>)
-
 }
