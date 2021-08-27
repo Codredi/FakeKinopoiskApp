@@ -3,6 +3,7 @@ package com.evanstukalov.fakekinopoiskapp.utils
 import com.evanstukalov.fakekinopoiskapp.database.DatabaseFilm
 import com.evanstukalov.fakekinopoiskapp.domain.Film
 import com.evanstukalov.fakekinopoiskapp.domain.Genre
+import com.evanstukalov.fakekinopoiskapp.domain.GenreSet
 import com.evanstukalov.fakekinopoiskapp.network.NetworkFilmsContainer
 
 fun NetworkFilmsContainer.asDatabaseModel(): List<DatabaseFilm> {

@@ -5,6 +5,7 @@ import android.widget.ListView
 import androidx.lifecycle.*
 import com.evanstukalov.fakekinopoiskapp.database.FilmDataBase
 import com.evanstukalov.fakekinopoiskapp.domain.Film
+import com.evanstukalov.fakekinopoiskapp.domain.Genre
 import com.evanstukalov.fakekinopoiskapp.repository.Repository
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -17,7 +18,17 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
 
     val films = repository.films
 
-    val genres = repository.genres
+    val genres = Transformations.map(repository.genres){ genres ->
+
+        var uniqueSet = mutableSetOf<String>()
+        for (collection in genres){
+            for (item in collection.genres){
+                uniqueSet.add(item)
+            }
+        }
+        uniqueSet.toList()
+    }
+
 
 
     /**

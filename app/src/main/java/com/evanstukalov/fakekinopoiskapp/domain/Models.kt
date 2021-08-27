@@ -20,3 +20,7 @@ data class Genre(
         val genres: List<String> = listOf()
 )
 
+data class GenreSet(
+        val genres: MutableSet<String> = mutableSetOf<String>()
+)
+
