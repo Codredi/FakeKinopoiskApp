@@ -56,6 +56,9 @@ class ListFragment : Fragment() {
                     adapter.submitList(it)
                 }
             })
+            genres.observe(viewLifecycleOwner, Observer { genres ->
+                Timber.d("$genres - Жанры")
+            })
             navigateToSelectedFilm.observe(viewLifecycleOwner, Observer { film ->
                 if (film != null){
                     findNavController().navigate(ListFragmentDirections.actionShowDetail(film))

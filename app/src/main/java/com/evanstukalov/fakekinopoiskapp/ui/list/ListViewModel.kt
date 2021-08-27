@@ -25,8 +25,6 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
      */
     init {
         refreshDataFromRepository()
-        Timber.d("${genres.value}) - Жанры")
-        Timber.d("${films.value}) - фИЛЬМЫ")
     }
 
     /**
