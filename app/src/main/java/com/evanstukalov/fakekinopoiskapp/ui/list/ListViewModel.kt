@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.IOException
 import java.lang.Exception
+import java.util.*
 
 class ListViewModel(application: Application, database: FilmDataBase): AndroidViewModel(application) {
 
@@ -20,12 +21,16 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
 
     val genres = Transformations.map(repository.genres){ genres ->
 
-        var uniqueSet = mutableSetOf<String>()
+        val uniqueSet = mutableSetOf<String>()
+
         for (collection in genres){
             for (item in collection.genres){
-                uniqueSet.add(item)
+                if (item != ""){
+                    uniqueSet.add(item.capitalize(Locale.ROOT))
+                }
             }
         }
+        Timber.d("${uniqueSet.toList()}")
         uniqueSet.toList()
     }
 

@@ -3,6 +3,7 @@ package com.evanstukalov.fakekinopoiskapp.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import java.util.*
 
 @Parcelize
 data class Film(
@@ -17,10 +18,6 @@ data class Film(
 ) : Parcelable
 
 data class Genre(
-        val genres: List<String> = listOf()
-)
-
-data class GenreSet(
-        val genres: MutableSet<String> = mutableSetOf<String>()
+    val genres: List<String> = listOf()
 )
 

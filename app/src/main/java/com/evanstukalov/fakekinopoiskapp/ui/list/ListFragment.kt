@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.evanstukalov.fakekinopoiskapp.R
 import com.evanstukalov.fakekinopoiskapp.database.getDatabase
 import com.evanstukalov.fakekinopoiskapp.databinding.FragmentListBinding
+import com.google.android.material.chip.Chip
 import timber.log.Timber
 
 class ListFragment : Fragment() {
@@ -29,7 +31,6 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Timber.d("ListFragment is created")
         // Inflate the layout for this fragment
         val binding: FragmentListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
 
@@ -37,27 +38,26 @@ class ListFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-        val adapter = ListFilmsAdapter{ film -> viewModel.displayFilmDetails(film) }
-        /**
-         * Method for displaying a Toast error message for network errors.
-         */
+        val filmAdapter = ListFilmsAdapter{ film -> viewModel.displayFilmDetails(film) }
+
+        // Film recyclerview
         binding.filmsRecyclerView.apply {
             layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-            this.adapter = adapter
+            this.adapter = filmAdapter
         }
 
-        // Observer for the network error.
+        // ViewModel observers
         viewModel.apply {
             eventNetworkError.observe(viewLifecycleOwner, Observer { isNetworkError ->
                 if (isNetworkError) onNetworkError()
             })
             films.observe(viewLifecycleOwner, Observer { films ->
                 films?.let {
-                    adapter.submitList(it)
+                    filmAdapter.submitList(it)
                 }
             })
             genres.observe(viewLifecycleOwner, Observer { genres ->
-                Timber.d("$genres - Жанры")
+                makeChips(genres, binding)
             })
             navigateToSelectedFilm.observe(viewLifecycleOwner, Observer { film ->
                 if (film != null){
@@ -68,6 +68,21 @@ class ListFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun makeChips(genres: List<String>?, binding: FragmentListBinding) {
+        val chipGroup = binding.chipGroup
+
+        if (genres != null) {
+            for (chip in genres){
+                if (chipGroup.size < genres.size){
+                    val chipItem = Chip(context)
+                    chipItem.text = chip
+                    Timber.d("${chipGroup.size}")
+                    chipGroup.addView(chipItem)
+                }
+            }
+        }
     }
 
     private fun onNetworkError() {
