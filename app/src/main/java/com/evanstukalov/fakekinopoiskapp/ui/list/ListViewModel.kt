@@ -7,6 +7,7 @@ import com.evanstukalov.fakekinopoiskapp.database.FilmDataBase
 import com.evanstukalov.fakekinopoiskapp.domain.Film
 import com.evanstukalov.fakekinopoiskapp.domain.Genre
 import com.evanstukalov.fakekinopoiskapp.repository.Repository
+import com.evanstukalov.fakekinopoiskapp.utils.asDomainModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.IOException
@@ -18,6 +19,7 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
     private val repository = Repository(database)
 
     val films = repository.films
+
 
     val genres = Transformations.map(repository.genres){ genres ->
 
@@ -94,6 +96,10 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
 
     fun displayPropertyDetailesCompleted(){
         _navigateToSelectedFilm.value = null
+    }
+
+    fun getCertainFilms(genre: String): LiveData<List<Film>>{
+        return repository.getCertainFilms(genre)
     }
 
 

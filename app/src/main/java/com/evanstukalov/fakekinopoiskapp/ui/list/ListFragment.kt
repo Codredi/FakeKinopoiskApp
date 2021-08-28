@@ -38,6 +38,7 @@ class ListFragment : Fragment() {
         binding.viewModel = viewModel
 
 
+        // Film adapter
         val filmAdapter = ListFilmsAdapter{ film -> viewModel.displayFilmDetails(film) }
 
         // Film recyclerview
@@ -67,9 +68,28 @@ class ListFragment : Fragment() {
             })
         }
 
+        binding.chipGroup.setOnCheckedChangeListener { chipGroup, checkedId ->
+            val chip = chipGroup.findViewById<Chip>(checkedId)
+            if (chip != null){
+                chip.setCheckedIconResource(R.drawable.ic_mtrl_chip_checked_black)
+                var genre = chip.text.toString()
+                genre = "%$genre%"
+                getCertainFilms(filmAdapter, genre)
+            }
+        }
+
+
         return binding.root
     }
 
+    private fun getCertainFilms(filmAdapter: ListFilmsAdapter, genre: String) {
+        viewModel.getCertainFilms(genre).observe(viewLifecycleOwner, Observer {
+            filmAdapter.submitList(it)
+        })
+        Timber.d("$genre - передаваемый жанр")
+    }
+
+    // Make chips programmatically
     private fun makeChips(genres: List<String>?, binding: FragmentListBinding) {
         val chipGroup = binding.chipGroup
 
@@ -77,8 +97,9 @@ class ListFragment : Fragment() {
             for (chip in genres){
                 if (chipGroup.size < genres.size){
                     val chipItem = Chip(context)
+
+                    chipItem.isCheckable = true
                     chipItem.text = chip
-                    Timber.d("${chipGroup.size}")
                     chipGroup.addView(chipItem)
                 }
             }
@@ -91,5 +112,4 @@ class ListFragment : Fragment() {
             viewModel.onNetworkErrorShown()
         }
     }
-
 }

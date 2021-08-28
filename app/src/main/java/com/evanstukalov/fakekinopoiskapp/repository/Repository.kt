@@ -29,4 +29,10 @@ class Repository(private val database: FilmDataBase) {
         it.asGenreModel()
     }
 
+    fun getCertainFilms(genre: String): LiveData<List<Film>>{
+        return Transformations.map(database.filmDao.getCertainFilms(genre)){
+            it.asDomainModel()
+        }
+    }
+
 }
