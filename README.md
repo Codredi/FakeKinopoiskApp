@@ -32,5 +32,5 @@ Android приложение для отображения списка филь
 ![Screenshot](https://i.postimg.cc/X7vhXLQq/Screenshot-1630217655.png)
 
 ### Download
-[File Name](https://github.com/Codredi/FakeKinopoiskApp/blob/master/preview_images/FakeKinopoisk.apk?raw=true)
+[FakeKinopoisk.apk](https://github.com/Codredi/FakeKinopoiskApp/blob/master/preview_images/FakeKinopoisk.apk?raw=true)
 
