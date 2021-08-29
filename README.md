@@ -27,7 +27,7 @@ Android приложение для отображения списка филь
 
 ### Screenshots
 
-![Screenshot](https://i.postimg.cc/FFfvB9XD/Screenshot-1630217660.png)
+![Screenshot](https://i.postimg.cc/3w2fzcJS/Screenshot-1630217660.png)
 ![Screenshot](https://i.postimg.cc/13SZXwnj/Screenshot-1630217674.png)
 ![Screenshot](https://i.postimg.cc/RhgDXJVv/Screenshot-1630217655.png)
 
