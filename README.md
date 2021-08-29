@@ -27,9 +27,9 @@ Android приложение для отображения списка филь
 
 ### Screenshots
 
-![Screenshot](https://i.postimg.cc/3w2fzcJS/Screenshot-1630217660.png)
-![Screenshot](https://i.postimg.cc/K8kHDzXy/Screenshot-1630217674.png)
-![Screenshot](https://i.postimg.cc/X7vhXLQq/Screenshot-1630217655.png)
+![Screenshot](https://i.postimg.cc/FFfvB9XD/Screenshot-1630217660.png)
+![Screenshot](https://i.postimg.cc/13SZXwnj/Screenshot-1630217674.png)
+![Screenshot](https://i.postimg.cc/RhgDXJVv/Screenshot-1630217655.png)
 
 ### Download
 [FakeKinopoisk.apk](https://github.com/Codredi/FakeKinopoiskApp/blob/master/preview_images/FakeKinopoisk.apk?raw=true)
