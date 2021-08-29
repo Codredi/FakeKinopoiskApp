@@ -26,8 +26,11 @@ Android приложение для отображения списка филь
 * Работа с изображениями: Glide
 
 ### Screenshots
-![Screenshot](https://ibb.co/dPQ5y3X)
+
+![Screenshot](https://i.postimg.cc/3w2fzcJS/Screenshot-1630217660.png)
+![Screenshot](https://i.postimg.cc/K8kHDzXy/Screenshot-1630217674.png)
+![Screenshot](https://i.postimg.cc/X7vhXLQq/Screenshot-1630217655.png)
 
 ### Download
-
+[File Name](https://github.com/Codredi/FakeKinopoiskApp/blob/master/preview_images/FakeKinopoisk.apk?raw=true)
 
