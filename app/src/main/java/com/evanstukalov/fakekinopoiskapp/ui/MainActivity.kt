@@ -1,16 +1,12 @@
 package com.evanstukalov.fakekinopoiskapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavHost
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.evanstukalov.fakekinopoiskapp.R
-import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Setting up button
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.navHostFragment)
         return navController.navigateUp()

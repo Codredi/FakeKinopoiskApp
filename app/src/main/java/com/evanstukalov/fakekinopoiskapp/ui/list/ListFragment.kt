@@ -68,6 +68,7 @@ class ListFragment : Fragment() {
             })
         }
 
+        // Setting listeners on individual chip
         binding.chipGroup.setOnCheckedChangeListener { chipGroup, checkedId ->
             val chip = chipGroup.findViewById<Chip>(checkedId)
             if (chip != null){
@@ -78,6 +79,8 @@ class ListFragment : Fragment() {
             }
         }
 
+        // Setting option menu in fragment
+        setHasOptionsMenu(true)
 
         return binding.root
     }

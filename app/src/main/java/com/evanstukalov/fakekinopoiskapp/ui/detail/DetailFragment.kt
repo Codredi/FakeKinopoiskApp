@@ -1,23 +1,19 @@
 package com.evanstukalov.fakekinopoiskapp.ui.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.evanstukalov.fakekinopoiskapp.R
 import com.evanstukalov.fakekinopoiskapp.databinding.FragmentDetailBinding
-import com.evanstukalov.fakekinopoiskapp.ui.list.ListViewModel
-import com.evanstukalov.fakekinopoiskapp.utils.bindImage
-import timber.log.Timber
 
 class DetailFragment : Fragment() {
 
-    val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +30,9 @@ class DetailFragment : Fragment() {
 
         // Setting title
         (requireActivity() as AppCompatActivity).supportActionBar?.title = film.localizedName
+
+        // Setting option menu in fragment
+        setHasOptionsMenu(true)
 
         return binding.root
     }

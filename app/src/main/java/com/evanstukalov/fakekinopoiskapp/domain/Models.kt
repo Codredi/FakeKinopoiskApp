@@ -3,7 +3,6 @@ package com.evanstukalov.fakekinopoiskapp.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import java.util.*
 
 @Parcelize
 data class Film(

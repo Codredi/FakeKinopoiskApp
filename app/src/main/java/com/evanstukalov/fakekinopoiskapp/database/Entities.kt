@@ -1,10 +1,8 @@
 package com.evanstukalov.fakekinopoiskapp.database
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.squareup.moshi.Json
 
 @Entity(tableName = "database")
 @TypeConverters(MyConverters::class)

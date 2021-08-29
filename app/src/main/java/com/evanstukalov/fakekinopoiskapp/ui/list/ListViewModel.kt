@@ -1,17 +1,12 @@
 package com.evanstukalov.fakekinopoiskapp.ui.list
 
 import android.app.Application
-import android.widget.ListView
 import androidx.lifecycle.*
 import com.evanstukalov.fakekinopoiskapp.database.FilmDataBase
 import com.evanstukalov.fakekinopoiskapp.domain.Film
-import com.evanstukalov.fakekinopoiskapp.domain.Genre
 import com.evanstukalov.fakekinopoiskapp.repository.Repository
-import com.evanstukalov.fakekinopoiskapp.utils.asDomainModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import java.io.IOException
-import java.lang.Exception
 import java.util.*
 
 class ListViewModel(application: Application, database: FilmDataBase): AndroidViewModel(application) {
@@ -86,18 +81,22 @@ class ListViewModel(application: Application, database: FilmDataBase): AndroidVi
         _isNetworkErrorShown.value = true
     }
 
+    // Used for navigation
     private val _navigateToSelectedFilm = MutableLiveData<Film>()
     val navigateToSelectedFilm: LiveData<Film>
         get() = _navigateToSelectedFilm
 
+    // Used for navigation
     fun displayFilmDetails(marsProperty: Film) {
         _navigateToSelectedFilm.value = marsProperty
     }
 
+    // Used for navigation
     fun displayPropertyDetailesCompleted(){
         _navigateToSelectedFilm.value = null
     }
 
+    // Get certain films as a response to selected genre chip
     fun getCertainFilms(genre: String): LiveData<List<Film>>{
         return repository.getCertainFilms(genre)
     }
