@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.evanstukalov.fakekinopoiskapp.ui.list.ListFragment"
-        android:label="fragment_list"
+        android:label="Fake Kinopoisk"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_showDetail"

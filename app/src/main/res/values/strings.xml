@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="films">Фильмы</string>
     <string name="genres">Жанры</string>
+    <string name="year">Год: %1$d</string>
+    <string name="rate">Рейтинг: %1$d</string>
 </resources>

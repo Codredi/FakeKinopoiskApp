@@ -1,5 +1,9 @@
 package com.evanstukalov.fakekinopoiskapp.utils
 
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -21,14 +25,17 @@ fun bindImage(imgView: ImageView, imgUrl: String?){
     }
 }
 
+@BindingAdapter("textYear")
+fun mapYear(textView: TextView, year: Int?){
+    textView.text = textView.context.getString(R.string.year, year)
+}
 
+@BindingAdapter("textRate")
+fun mapRating(textView: TextView, rating: Double?){
+//    textView.text = "Рейтинг: $year"
 
-//@BindingAdapter("imageUrl")
-//fun mapText(textView: TextView, value: String){
-//    var newString: String = ""
-//    if (textView.lineCount >= 3){
-//        textView.setLines(2)
-//        newString = value.substring(0..(value.count() - 3)).plus("...")
-//    }
-//    textView.text = newString
-//}
+    val spannable = SpannableString("Рейтинг: $rating")
+    spannable.setSpan(ForegroundColorSpan(Color.GREEN), 8, spannable.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    textView.text = spannable
+}
+
